@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS mall;
+USE mall;
+
 /*
 Navicat MySQL Data Transfer
 

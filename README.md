@@ -391,7 +391,7 @@ spec:
 
 之后可以在 VelaUX 的可视化界面上查看相关的部署情况，VelaUX 的教程请见官网 https://kubevela.io/docs/reference/addons/velaux/ 。
 
-### spring cloud 文件查看
+### 验证部署情况
 
 通过 `vela status -n mall mall-swarm --endpoint` 即可知道所有项目的 DNS 地址，如下：
 
@@ -424,6 +424,14 @@ Please access mall-swarm from the following endpoints:
 ```
  
 有了 DNS 地址就可以将集群中的内容 port-forward 到 localhost。
+
+#### mysql配置
+
+在上面的部署中，已经将 mysql 的 data 挂载到了本地
+
+首先进入 mysql `vela exec mysql -n mall --  mysql -h mysql.mall -P 3306 --user=root  --password=root`
+
+之后在 mysql 中执行一次 document/sql/mall.sql 即可实现数据挂载。
 
 #### port-forward mall-monitor 的地址
 
@@ -486,4 +494,6 @@ Handling connection for 8201
 之后可以将这个 token 放到下图的参数值中
 
 ![](document/png/doc-authorization.png)
+
+之后就可以访问所有微服务的 api，并进行访问，但是注意在访问的时候需要在 header 中加上 `Authorization` ，值为上图中请求返回的 token，即可访问数据库。
 
