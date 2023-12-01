@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-registry.mall:8848
+      config:
+        server-addr: nacos-registry.mall:8848
+        file-extension: yaml
+logging:
+  level:
+    root: debug
