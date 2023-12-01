@@ -1,58 +1,16 @@
 # mall-swarm
 
-<p>
-  <a href="#公众号"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-macrozheng-blue.svg" alt="公众号"></a>
-  <a href="#公众号"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E4%BA%A4%E6%B5%81-%E5%BE%AE%E4%BF%A1%E7%BE%A4-2BA245.svg" alt="交流"></a>
-  <a href="https://github.com/macrozheng/mall-learning"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B-mall--learning-green.svg" alt="学习教程"></a>
-  <a href="https://github.com/macrozheng/mall"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE-mall-blue.svg" alt="后台项目"></a>
-  <a href="https://github.com/macrozheng/mall-admin-web"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE-mall--admin--web-green.svg" alt="前端项目"></a>
-  <a href="https://github.com/macrozheng/mall-app-web"><img src="https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%89%8D%E5%8F%B0%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE-mall--app--web-green.svg" alt="前台商城项目"></a>
-  <a href="https://gitee.com/macrozheng/mall-swarm"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E7%A0%81%E4%BA%91-%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80-orange.svg" alt="码云"></a>
-</p>
+原项目链接：
+- mall-swarm：https://github.com/macrozheng/mall-swarm
+- mall-app-web：https://github.com/macrozheng/mall-app-web
 
-## 友情提示
+目前此项目只配置了后端 springcloud 项目，没有配置 前端的 vue 项目
 
-> 1. **快速体验项目**：[在线访问地址](https://www.macrozheng.com/admin/index.html) 。
-> 2. **全套学习教程**：[《mall学习教程》](https://www.macrozheng.com) 。
-> 3. **视频教程（2023最新版）**：[《mall视频教程》](https://www.macrozheng.com/mall/catalog/mall_video.html) 。
-> 4. **Spring Cloud全套教程**：[《SpringCloud学习教程》](https://github.com/macrozheng/springcloud-learning) 。
-> 5. **项目交流**：想要加群交流项目的朋友，可以加入[mall项目交流群](#公众号) 。
+## 组织架构
 
-## 项目简介
+为了快速理解该项目，首先该了解该项目的组织架构：
 
-`mall-swarm`是一套微服务商城系统，采用了 Spring Cloud 2021 & Alibaba、Spring Boot 2.7、Oauth2、MyBatis、Elasticsearch、Docker、Kubernetes等核心技术，同时提供了基于Vue的管理后台方便快速搭建系统。`mall-swarm`在电商业务的基础集成了注册中心、配置中心、监控中心、网关等系统功能。文档齐全，附带全套Spring Cloud教程。
-
-## 项目演示
-
-### 后台管理系统
-
-前端项目`mall-admin-web`地址：https://github.com/macrozheng/mall-admin-web
-
-项目演示地址： [https://www.macrozheng.com/admin/index.html](https://www.macrozheng.com/admin/index.html)
-
-![后台管理系统功能演示](./document/resource/mall_admin_show.png)
-
-### 前台商城系统
-
-前端项目`mall-app-web`地址：https://github.com/macrozheng/mall-app-web
-
-项目演示地址（将浏览器切换为手机模式效果更佳）：[https://www.macrozheng.com/app/](https://www.macrozheng.com/app/)
-
-![前台商城系统功能演示](./document/resource/re_mall_app_show.jpg)
-
-## 项目架构
-
-### 系统架构
-
-![系统架构图](./document/resource/mall_micro_service_arch.jpg)
-
-### 业务架构
-
-![业务架构图](./document/resource/re_mall_business_arch.jpg)
-
-### 组织结构
-
-``` lua
+```
 mall
 ├── mall-common -- 工具类及通用代码模块
 ├── mall-mbg -- MyBatisGenerator生成的数据库操作代码模块
@@ -66,128 +24,466 @@ mall
 └── config -- 配置中心存储的配置
 ```
 
-## 技术选型
+基础设施清单：
 
-### 后端技术
+- mysql:5.7
+- redis:7
+- nginx:1.22
+- rabbitmq:3.9-management
+- elasticsearch:7.17.3
+- logstash:7.17.3
+- mongo:4
+- minio/minio
 
-| 技术                   | 说明                 | 官网                                                 |
-| ---------------------- | -------------------- | ---------------------------------------------------- |
-| Spring Cloud           | 微服务框架           | https://spring.io/projects/spring-cloud              |
-| Spring Cloud Alibaba   | 微服务框架           | https://github.com/alibaba/spring-cloud-alibaba      |
-| Spring Boot            | 容器+MVC框架         | https://spring.io/projects/spring-boot               |
-| Spring Security Oauth2 | 认证和授权框架       | https://spring.io/projects/spring-security-oauth     |
-| MyBatis                | ORM框架              | http://www.mybatis.org/mybatis-3/zh/index.html       |
-| MyBatisGenerator       | 数据层代码生成       | http://www.mybatis.org/generator/index.html          |
-| PageHelper             | MyBatis物理分页插件  | http://git.oschina.net/free/Mybatis_PageHelper       |
-| Knife4j                | 文档生产工具         | https://github.com/xiaoymin/swagger-bootstrap-ui     |
-| Elasticsearch          | 搜索引擎             | https://github.com/elastic/elasticsearch             |
-| RabbitMq               | 消息队列             | https://www.rabbitmq.com/                            |
-| Redis                  | 分布式缓存           | https://redis.io/                                    |
-| MongoDb                | NoSql数据库          | https://www.mongodb.com/                             |
-| Docker                 | 应用容器引擎         | https://www.docker.com/                              |
-| Druid                  | 数据库连接池         | https://github.com/alibaba/druid                     |
-| OSS                    | 对象存储             | https://github.com/aliyun/aliyun-oss-java-sdk        |
-| MinIO                  | 对象存储             | https://github.com/minio/minio                       |
-| JWT                    | JWT登录支持          | https://github.com/jwtk/jjwt                         |
-| LogStash               | 日志收集             | https://github.com/logstash/logstash-logback-encoder |
-| Lombok                 | 简化对象封装工具     | https://github.com/rzwitserloot/lombok               |
-| Seata                  | 全局事务管理框架     | https://github.com/seata/seata                       |
-| Portainer              | 可视化Docker容器管理 | https://github.com/portainer/portainer               |
-| Jenkins                | 自动化部署工具       | https://github.com/jenkinsci/jenkins                 |
-| Kubernetes             | 应用容器管理平台     | https://kubernetes.io/                               |
+## 部署步骤
 
-### 前端技术
+### 打 jar 包
 
-| 技术       | 说明                  | 官网                           |
-| ---------- | --------------------- | ------------------------------ |
-| Vue        | 前端框架              | https://vuejs.org/             |
-| Vue-router | 路由框架              | https://router.vuejs.org/      |
-| Vuex       | 全局状态管理框架      | https://vuex.vuejs.org/        |
-| Element    | 前端UI框架            | https://element.eleme.io/      |
-| Axios      | 前端HTTP框架          | https://github.com/axios/axios |
-| v-charts   | 基于Echarts的图表框架 | https://v-charts.js.org/       |
+在根目录下，打项目的jar包
 
-### 移动端技术
+```
+mvn install
+mvn package
+```
 
-| 技术         | 说明             | 官网                                    |
-| ------------ | ---------------- | --------------------------------------- |
-| Vue          | 核心前端框架     | https://vuejs.org                       |
-| Vuex         | 全局状态管理框架 | https://vuex.vuejs.org                  |
-| uni-app      | 移动端前端框架   | https://uniapp.dcloud.io                |
-| mix-mall     | 电商项目模板     | https://ext.dcloud.net.cn/plugin?id=200 |
-| luch-request | HTTP请求框架     | https://github.com/lei-mu/luch-request  |
+### 打 docker 镜像
 
-## 环境搭建
+然后将jar包build成docker，以 mall-auth 为例， `docker build -t xxx/mall-auth::1.0-SNAPSHOT .`
 
-### 开发环境
+![](document/png/mall-auth-jar.png)
 
-| 工具          | 版本号 | 下载                                                         |
-| ------------- | ------ | ------------------------------------------------------------ |
-| JDK           | 1.8    | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html |
-| Mysql         | 5.7    | https://www.mysql.com/                                       |
-| Redis         | 7.0    | https://redis.io/download                                    |
-| Elasticsearch | 7.17.3 | https://www.elastic.co/cn/downloads/elasticsearch            |
-| Kibana        | 7.17.3 | https://www.elastic.co/cn/downloads/kibana                   |
-| Logstash      | 7.17.3 | https://www.elastic.co/cn/downloads/logstash                 |
-| MongoDb       | 5.0    | https://www.mongodb.com/download-center                      |
-| RabbitMq      | 3.10.5 | http://www.rabbitmq.com/download.html                        |
-| nginx         | 1.22   | http://nginx.org/en/download.html                            |
+其中 dockerfile 如下：
 
-### 搭建步骤
+```
+FROM java:8
+ADD mall-auth-1.0-SNAPSHOT.jar /mall-tiny-docker-file.jar
+RUN bash -c 'touch /mall-tiny-docker-file.jar'
+EXPOSE 8401
+ENTRYPOINT ["java", "-jar","/mall-tiny-docker-file.jar"]
+MAINTAINER wfuing
+```
 
-> Windows环境部署
+其中，端口的映射关系如下：
 
-- Windows环境搭建请参考：[mall-swarm在Windows环境下的部署](https://www.macrozheng.com/mall/deploy/mall_swarm_deploy_windows.html);
-- `mall-admin-web`项目的安装及部署请参考：[mall前端项目的安装与部署](https://www.macrozheng.com/mall/deploy/mall_deploy_web.html);
-- `ELK`日志收集系统的搭建请参考：[SpringBoot应用整合ELK实现日志收集](https://www.macrozheng.com/mall/reference/mall_tiny_elk.html);
-- 使用MinIO存储文件请参考：[前后端分离项目，如何优雅实现文件存储](https://www.macrozheng.com/mall/technology/minio_use.html);
-- 读写分离解决方案请参考：[你还在代码里做读写分离么，试试这个中间件吧](https://www.macrozheng.com/project/gaea.html);
-- `分布式事务`解决方案请参考：[使用Seata彻底解决Spring Cloud中的分布式事务问题！](https://www.macrozheng.com/cloud/seata.html) 。
+- mall-auth：8401
+- mall-admin：8080
+- mall-gateway：8201
+- mall-monitor：8101
+- mall-portal：8085
+- mall-search：8081
 
-> Docker环境部署
+打完 docker 后，将镜像推送到 dockerhub 上，使用 `docker push xxx:xxx`
 
-- 使用虚拟机安装CentOS7.6请参考：[虚拟机安装及使用Linux，看这一篇就够了](https://www.macrozheng.com/tool/linux_install.html);
-- Docker环境的安装请参考：[开发者必备Docker命令](https://www.macrozheng.com/mall/reference/linux_command.html);
-- 本项目Docker镜像构建请参考：[使用Maven插件为SpringBoot应用构建Docker镜像](https://www.macrozheng.com/mall/reference/docker_maven.html);
-- 本项目在Docker容器下的部署请参考：[mall-swarm在Linux环境下的部署（基于Docker容器）](https://www.macrozheng.com/mall/deploy/mall_swarm_deploy_windows.html);
-- 本项目使用Jenkins自动化部署请参考：[mall-swarm使用Jenkins实现自动化部署](https://www.macrozheng.com/mall/deploy/mall_swarm_deploy_jenkins.html) 。
+### 安装 kubevela
 
-> Kubernetes环境部署
+请查看官方文档：https://kubevela.io/docs/installation/kubernetes/
 
-- 本项目使用Kubernetes部署请参考：[mall-swarm微服务项目在K8S下的实践！](https://www.macrozheng.com/mall/deploy/mall_swarm_deploy_k8s.html)
 
-## 运行效果展示
+### 书写 kubevela 配置文件
 
-- 查看注册中心注册服务信息，访问地址：http://192.168.3.101:8848/nacos/
+这边给出我的配置文件，具体如下：
 
-![](./document/resource/mall_swarm_run_new_01.png)
+```yaml
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: mall-swarm
+  namespace: mall
+spec:
+  components:
+    - name: mysql
+      type: webservice
+      properties:
+        image: mysql:5.7
+        ports:
+          - port: 3306
+            expose: true
+        cmd:
+          [
+            "sh",
+            "-c",
+            "mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci",
+          ]
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: root
+        volumeMounts:
+          hostPath:
+            - name: volume1 #数据文件挂载
+              mountPath: /var/lib/mysql
+              path: /mydata/mysql/data/db
+            - name: volume2 #配置文件挂载
+              mountPath: /etc/mysql/conf.d
+              path: /mydata/mysql/data/conf
+            - name: volume3 #日志文件挂载
+              mountPath: /var/log/mysql
+              path: /mydata/mysql/log
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: redis
+      type: webservice
+      properties:
+        image: redis:7
+        ports:
+          - port: 6379
+            expose: true
+        volumeMounts:
+          hostPath:
+            - name: volume1 #数据文件挂载
+              mountPath: /data
+              path: /mydata/redis/data
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: rabbitmq
+      type: webservice
+      properties:
+        image: rabbitmq:3.9-management
+        ports:
+          - port: 5672
+            expose: true
+          - port: 15672
+            expose: true
+        env:
+          - name: RABBITMQ_DEFAULT_VHOST
+            value: /mall
+        volumeMounts:
+          hostPath:
+            - name: volume1
+              mountPath: /var/lib/rabbitmq
+              path: /mydata/rabbitmq/data
+            - name: volume2
+              mountPath: /var/log/rabbitmq
+              path: /mydata/rabbitmq/log
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: elasticsearch
+      type: webservice
+      properties:
+        image: elasticsearch:7.17.3
+        ports:
+          - port: 9200
+            expose: true
+        env:
+          - name: cluster.name
+            value: elasticsearch
+          - name: discovery.type
+            value: single-node
+          - name: ES_JAVA_OPTS
+            value: -Xms512m -Xmx1024m
+        volumeMounts:
+          hostPath:
+            - name: volume4
+              mountPath: /usr/share/elasticsearch/plugins
+              path: /mydata/elasticsearch/plugins
+            - name: volume5
+              mountPath: /var/lib/elasticsearch/data
+              path: /mydata/elasticsearch/data
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: logstash
+      type: webservice
+      dependsOn:
+        - elasticsearch
+      properties:
+        image: logstash:7.17.3
+        ports:
+          - port: 4560
+            expose: true
+          - port: 4561
+            expose: true
+          - port: 4562
+            expose: true
+          - port: 4563
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+        volumeMounts:
+          hostPath:
+            - name: volume1
+              mountPath: /usr/share/logstash/pipeline/logstash.conf
+              path: /mydata/logstash/logstash.conf
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mongo
+      type: webservice
+      properties:
+        image: mongo:4
+        # imagePullPolicy: Always
+        ports:
+          - port: 27017
+            expose: true
+        volumeMounts:
+          hostPath:
+            - name: volume1
+              mountPath: /data/db
+              path: /mydata/mongo/db
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: nacos-registry
+      type: webservice
+      properties:
+        image: nacos/nacos-server:v2.1.0
+        ports:
+          - port: 8848
+            expose: true
+        env:
+          - name: MODE
+            value: standalone
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: minio
+      type: webservice
+      properties:
+        image: minio/minio
+        ports:
+          - port: 9000
+            expose: true
+          - port: 9001
+            expose: true
+        args: ["server", "--console-address", ":9001", "/data"]
+        volumeMounts:
+          hostPath:
+            - name: volume1
+              mountPath: /data
+              path: /mydata/minio/data
+        env:
+          - name: MINIO_ROOT_USER
+            value: minioadmin
+          - name: MINIO_ROOT_PASSWORD
+            value: minioadmin
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mall-auth
+      type: webservice
+      properties:
+        image: september9/mall-auth:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+          - port: 8401
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mall-portal
+      type: webservice
+      dependsOn:
+        - mysql
+        - nacos-registry
+        - mongo
+        - redis
+        - rabbitmq
+      properties:
+        image: september9/mall-portal:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+          - port: 8085
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mall-gateway
+      type: webservice
+      dependsOn:
+        - nacos-registry
+        - redis
+      properties:
+        image: september9/mall-gateway:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+          - port: 8201
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mall-monitor
+      dependsOn:
+        - nacos-registry
+        - mall-search
+        - mall-admin
+      type: webservice
+      properties:
+        image: september9/mall-monitor:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+          - port: 8101
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mall-search
+      type: webservice
+      dependsOn:
+        - mysql
+        - nacos-registry
+      properties:
+        image: september9/mall-search:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+          - port: 8081
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+    - name: mall-admin
+      type: webservice
+      dependsOn:
+        - mysql
+        - nacos-registry
+        - minio
+        - redis
+      properties:
+        image: september9/mall-admin:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+          - port: 8080
+            expose: true
+        env:
+          - name: TZ
+            value: Asia/Shanghai
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+```
 
-- 监控中心应用信息，访问地址：http://192.168.3.101:8101
+在这里要指出的是，如果你需要将 `properties.image` 改成你自己的docker镜像，当然用上面的也行。
 
-![](./document/resource/mall_swarm_run_new_02.png)
+上面的配置都采用的 Kubevela 中的 webservice 组件进行定义，如果需要查看 webservice 的文档，可以在命令行输入 `vela show webservice --web` 之后就可以在浏览器中查看文档。
 
-![](./document/resource/mall_swarm_run_new_04.png)
+有了配置文件以后，就可以在 kubevela 上进行部署，在上述的 mall-swarm.yaml 文件的目录下执行 `vela up -f mall-swarm.yaml` 即可实现部署。
 
-- API文档信息，访问地址：http://192.168.3.101:8201
+之后可以在 VelaUX 的可视化界面上查看相关的部署情况，VelaUX 的教程请见官网 https://kubevela.io/docs/reference/addons/velaux/ 。
 
-![](./document/resource/mall_swarm_run_05.png)
+### spring cloud 文件查看
 
-- 日志收集系统信息，访问地址：http://192.168.3.101:5601
+通过 `vela status -n mall mall-swarm --endpoint` 即可知道所有项目的 DNS 地址，如下：
 
-![](./document/resource/mall_swarm_run_new_06.png)
+``` zsh
+~$ vela status -n mall mall-swarm --endpoint
+Please access mall-swarm from the following endpoints:
++---------+----------------+-----------------------------+-----------------------------+-------+
+| CLUSTER |   COMPONENT    |  REF(KIND/NAMESPACE/NAME)   |          ENDPOINT           | INNER |
++---------+----------------+-----------------------------+-----------------------------+-------+
+| local   | mysql          | Service/mall/mysql          | mysql://mysql.mall:3306     | true  |
+| local   | redis          | Service/mall/redis          | redis://redis.mall:6379     | true  |
+| local   | rabbitmq       | Service/mall/rabbitmq       | rabbitmq.mall:5672          | true  |
+| local   | rabbitmq       | Service/mall/rabbitmq       | rabbitmq.mall:15672         | true  |
+| local   | elasticsearch  | Service/mall/elasticsearch  | elasticsearch.mall:9200     | true  |
+| local   | mongo          | Service/mall/mongo          | mongo.mall:27017            | true  |
+| local   | nacos-registry | Service/mall/nacos-registry | nacos-registry.mall:8848    | true  |
+| local   | minio          | Service/mall/minio          | minio.mall:9000             | true  |
+| local   | minio          | Service/mall/minio          | minio.mall:9001             | true  |
+| local   | mall-auth      | Service/mall/mall-auth      | mall-auth.mall:8401         | true  |
+| local   | logstash       | Service/mall/logstash       | logstash.mall:4560          | true  |
+| local   | logstash       | Service/mall/logstash       | logstash.mall:4561          | true  |
+| local   | logstash       | Service/mall/logstash       | logstash.mall:4562          | true  |
+| local   | logstash       | Service/mall/logstash       | logstash.mall:4563          | true  |
+| local   | mall-portal    | Service/mall/mall-portal    | mall-portal.mall:8085       | true  |
+| local   | mall-gateway   | Service/mall/mall-gateway   | mall-gateway.mall:8201      | true  |
+| local   | mall-search    | Service/mall/mall-search    | mall-search.mall:8081       | true  |
+| local   | mall-admin     | Service/mall/mall-admin     | http://mall-admin.mall:8080 | true  |
+| local   | mall-monitor   | Service/mall/mall-monitor   | mall-monitor.mall:8101      | true  |
++---------+----------------+-----------------------------+-----------------------------+-------+
+```
+ 
+有了 DNS 地址就可以将集群中的内容 port-forward 到 localhost。
 
-- 可视化容器管理，访问地址：http://192.168.3.101:9000
+#### port-forward mall-monitor 的地址
 
-![](./document/resource/mall_swarm_run_new_08.png)
+在这个项目中可以 port-forward mall-monitor 的地址，可以查看微服务部署的情况。
 
-## 公众号
+```zsh
+~$ vela port-forward -n mall mall-swarm  8101:8101
+? There are 14 services match your filter conditions. Please choose one:
+Cluster | Component | Service local | mall-monitor | mall-monitor
+trying to connect the remote endpoint svc/mall-monitor 8101:8101 ..Forwarding from 127.0.0.1:8101 -> 8101
+Forwarding from [::1]:8101 -> 8101
 
-加微信群交流，关注公众号「**macrozheng**」，回复「**加群**」即可。
+Forward successfully! Opening browser ...
 
-![公众号图片](http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg)
+Failed to open browser: exec: "xdg-open": executable file not found in $PATHHandling connection for 8101
+Handling connection for 8101
+Handling connection for 8101
+Handling connection for 8101
+```
 
-## 许可证
+在本地的浏览器打开
 
-[Apache License 2.0](https://github.com/macrozheng/mall-swarm/blob/master/LICENSE)
+![](document/png/mall-monitor-login.png)
 
-Copyright (c) 2018-2023 macrozheng
+
+用户名和密码如下：
+
+- macro
+- 123456
+
+进入 mall-monitor 界面，可以监控项目中的微服务。
+
+![](document/png/mall-monitor.png)
+
+#### port-forward mall-gateway 的地址
+
+也可以 port-forward mall-monitor 的地址，可以微服务部署的 api。
+
+```zsh
+~$ vela port-forward mall-swarm 8201:8201
+? There are 14 services match your filter conditions. Please choose one:
+Cluster | Component | Service local | mall-gateway | mall-gateway
+trying to connect the remote endpoint svc/mall-gateway 8201:8201 ..Forwarding from 127.0.0.1:8201 -> 8201
+Forwarding from [::1]:8201 -> 8201
+
+Forward successfully! Opening browser ...
+
+Failed to open browser: exec: "xdg-open": executable file not found in $PATHHandling connection for 8201
+Handling connection for 8201
+Handling connection for 8201
+Handling connection for 8201
+```
+
+在浏览器中输入`http://localhost:8201/doc.html` 即可进入。
+
+当然这个项目中使用了 token 验证，可以使用 postman 发送 post 请求
+
+![](document/png/postman.png)
+
+之后可以将这个 token 放到下图的参数值中
+
+![](document/png/doc-authorization.png)
+
