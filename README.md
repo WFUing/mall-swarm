@@ -433,6 +433,18 @@ Please access mall-swarm from the following endpoints:
 
 之后在 mysql 中执行一次 document/sql/mall.sql 即可实现数据挂载。
 
+#### RabbitMQ配置
+
+在配置过程中会遇到一些问题，主要来说还是挂载路径的权限问题，在[RabbitMQ挂载文件权限问题-踩坑经历](https://www.jianshu.com/p/6df642e90b4b)这篇博文中有详细记载。
+
+简单来说，就是修改`log`目录权限
+
+```
+sudo chmod 777 mydata/rabbitmq/log
+```
+
+然后如果一开始初始化出错，一定要把挂载的路径下的文件全不删除后，再重新启动。
+
 #### port-forward mall-monitor 的地址
 
 在这个项目中可以 port-forward mall-monitor 的地址，可以查看微服务部署的情况。
@@ -465,6 +477,7 @@ Handling connection for 8101
 进入 mall-monitor 界面，可以监控项目中的微服务。
 
 ![](document/png/mall-monitor.png)
+
 
 #### port-forward mall-gateway 的地址
 
